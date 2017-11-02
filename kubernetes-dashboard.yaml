@@ -102,12 +102,14 @@ spec:
       initContainers:
       - name: kubernetes-dashboard-init
         image: gcr.io/google_containers/kubernetes-dashboard-init-amd64:v1.0.1
+        imagePullPolicy: IfNotPresent
         volumeMounts:
         - name: kubernetes-dashboard-certs
           mountPath: /certs
       containers:
       - name: kubernetes-dashboard
         image: gcr.io/google_containers/kubernetes-dashboard-amd64:v1.7.1
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8443
           protocol: TCP
